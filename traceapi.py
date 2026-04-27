@@ -51,7 +51,7 @@ def extract_apis(text): # extract API endpoints from text
     return set(API_REGEX.findall(text))
 
 for target in targets:
-    print(f"Processing: {target}")
+    print(f"\nProcessing: {target}")
     html_content = client.get(target).text # fetch HTML source code
     html_content = html.unescape(html_content) # decode HTML into text
 
@@ -70,4 +70,4 @@ for target in targets:
             f.write(f" - {api}\n")
         f.write("\n")
 
-    print(f"Found {len(found_apis)} APIs for {target}\n")
+    print(f"Found {len(found_apis)} APIs for {target}")
